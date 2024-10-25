@@ -18,8 +18,13 @@ columnas = ['Major_Axis_Length', 'Perimeter', 'Area', 'Convex_Area', 'Eccentrici
 # Crear la aplicación FastAPI
 app = FastAPI(title="Clasificación de Granos de Arroz")
 
+
+@app.get("/")
+async def root():
+    return {"message": "Prediction"}
+
 # Definir el endpoint para predicción
-@app.get("/prediccion/")
+@app.get("/predecir_fraude/")
 async def predecir_fraude(Major_Axis_Length: float,
     Perimeter: float,
     Area: int,
